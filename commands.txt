@@ -2,3 +2,6 @@ npm install -g @angular/cli
 ng new my-dream-app
 ng serve
 ng serve --port ANOTHERPORT
+npm install --save bootstrap@3
+
+npm uninstall -g angular-cli @angular/cli npm cache clean --force npm install -g @angular/cli
