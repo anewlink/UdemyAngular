@@ -19,7 +19,7 @@
     </div>
     <div class="col-xs-12">
       <ul>
-        <li *ngFor="let click of clicks" [ngStyle]="{backgroundColor: getColor(click)}" [ngClass]="{'white':click.id>4}">{{click.id}}: {{click.timeStamp}}</li>
+        <li *ngFor="let click of clicks; let i = index" [ngStyle]="{backgroundColor: getColor(i)}" [ngClass]="{'white':i>=4}">{{click}}</li>
       </ul>
     </div>
   </div>

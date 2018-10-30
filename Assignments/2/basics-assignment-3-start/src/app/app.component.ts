@@ -12,12 +12,13 @@ export class AppComponent {
 
   toggleDetails(event){
     this.showData = !this.showData;
-    let click = {timeStamp: event.timeStamp, id: this.clickId};
-    this.clickId += 1;
-    this.clicks.push(click);
+    //let click = {timeStamp: event.timeStamp, id: this.clickId};
+    //this.clickId += 1;
+    //this.clicks.push(click);
+    this.clicks.push(new Date());
   }
 
-  getColor(click){
-    return click.id > 4 ? 'blue': 'unset';
+  getColor(index){
+    return index >= 4 ? 'blue': 'unset';
   }
 }
