@@ -8,5 +8,7 @@ npm uninstall -g angular-cli @angular/cli npm cache clean --force npm install -g
 
 ng generate component servers
 ng g c servers
+ng g c servers --spec false // no tests
+ng g c server/servers --spec false // create inside server folder
 
 npm install --save bootstrap@3   --save: dev dependencie
