@@ -7,7 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { RecipeBookComponent } from './header/recipe-book/recipe-book.component';
 import { ShoppingListComponent } from './header/shopping-list/shopping-list.component';
 import { IngredientComponent } from './header/shopping-list/ingredient/ingredient.component';
-import { RecipeComponent } from './header/recipe-book/recipe-list/recipe/recipe.component';
+import { RecipeComponent } from './header/recipe-book/recipe-list/recipe-item/recipe-item.component';
 import { RecipeDetailComponent } from './header/recipe-book/recipe-detail/recipe-detail.component';
 import { RecipeListComponent } from './header/recipe-book/recipe-list/recipe-list.component';
 import { ShoppingEditComponent } from './header/shopping-list/shopping-edit/shopping-edit.component';
