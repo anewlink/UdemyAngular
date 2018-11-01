@@ -12,3 +12,7 @@ ng g c servers --spec false // no tests
 ng g c server/servers --spec false // create inside server folder
 
 npm install --save bootstrap@3   --save: dev dependencie
+
+Debugging on Chrome:
+- Sources / Webpack / . / src ...
+- Augury tab
