@@ -2,6 +2,11 @@ p {
   color: blue;
 }
 
+/* fix ng-content style*/
+:host >>> p {
+  color: blue;
+}
+
 label {
   color: red;
 }
