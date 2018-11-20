@@ -1,10 +1,14 @@
 export class CounterService {
+  userActivaterCounter = 0;
+  userDeactivaterCounter = 0;
 
-  userActivaterCounter = 2;
-  userDeactivaterCounter = 2;
+  incrementActivaterCounter() {
+    this.userActivaterCounter++;
+    console.log(this.userActivaterCounter);
+  }
 
-constructor() {
-
-}
-
+  incrementDeactivaterCounter() {
+    this.userDeactivaterCounter++;
+    console.log(this.userDeactivaterCounter);
+  }
 }
