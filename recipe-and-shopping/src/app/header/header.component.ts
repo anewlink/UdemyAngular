@@ -6,16 +6,16 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  @Output() selectedMenu = new EventEmitter<string>();
+  /* @Output() selectedMenu = new EventEmitter<string>(); */
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  onHeaderClick(section: string){
-    console.log("onHeaderClick", section);
+/*   onSelect(section: string){
+    console.log("onSelect", section);
     this.selectedMenu.emit(section);
-  }
+  } */
 
 }
