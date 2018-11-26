@@ -5,8 +5,7 @@ import { ShoppingListComponent } from './header/shopping-list/shopping-list.comp
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/recipes', pathMatch: 'full' },
-  { path: 'recipes', component: RecipeBookComponent, },
-  { path:'shopping-list', component: ShoppingListComponent },
+  { path: 'recipes', component: RecipeBookComponent}
 ];
 
 @NgModule({
