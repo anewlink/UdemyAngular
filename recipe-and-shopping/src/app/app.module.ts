@@ -5,15 +5,15 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { RecipeBookComponent } from './header/recipe-book/recipe-book.component';
+import { RecipeBookComponent } from './recipe-book/recipe-book.component';
 import { ShoppingListComponent } from './header/shopping-list/shopping-list.component';
-import { RecipeComponent } from './header/recipe-book/recipe-list/recipe-item/recipe-item.component';
-import { RecipeDetailComponent } from './header/recipe-book/recipe-detail/recipe-detail.component';
-import { RecipeListComponent } from './header/recipe-book/recipe-list/recipe-list.component';
+import { RecipeComponent } from './recipe-book/recipe-list/recipe-item/recipe-item.component';
+import { RecipeDetailComponent } from './recipe-book/recipe-detail/recipe-detail.component';
+import { RecipeListComponent } from './recipe-book/recipe-list/recipe-list.component';
 import { ShoppingEditComponent } from './header/shopping-list/shopping-edit/shopping-edit.component';
 import { DropdownDirective } from './header/shared/dropdown.directive';
 import { ShoppingListService } from './header/shopping-list/shopping-list.service';
-import { RecipeStartComponent } from './header/recipe-book/recipe-start/recipe-start.component';
+import { RecipeStartComponent } from './recipe-book/recipe-start/recipe-start.component';
 
 @NgModule({
   declarations: [
