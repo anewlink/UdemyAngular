@@ -1,11 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { RecipeBookComponent } from './header/recipe-book/recipe-book.component';
-import { ShoppingListComponent } from './header/shopping-list/shopping-list.component';
+import { RecipeBookComponent } from './recipe-book/recipe-book.component';
+import { ShoppingListComponent } from './shopping-list/shopping-list.component';
+import { RecipeStartComponent } from './recipe-book/recipe-start/recipe-start.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/recipes', pathMatch: 'full' },
-  { path: 'recipes', component: RecipeBookComponent}
+  { path: 'recipes', component: RecipeBookComponent, children:
+  [
+    {path: '', component: RecipeStartComponent}
+  ]}
 ];
 
 @NgModule({
