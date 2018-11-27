@@ -1,7 +1,10 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { interval, Observable, Observer, Subscription } from 'rxjs';
-import { map } from 'rxjs/operators';
-
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/Rx';
+import { Observer } from 'rxjs/Observer';
+import { Subscription } from 'rxjs/Subscription';
+ 
+ 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -10,17 +13,23 @@ import { map } from 'rxjs/operators';
 export class HomeComponent implements OnInit, OnDestroy {
   numbersObsSubscription: Subscription;
   customObsSubscription: Subscription;
-
-  constructor() {}
-
+ 
+ 
+  constructor() { }
+ 
+ 
   ngOnInit() {
-    const myNumbers = interval(1000).pipe(map((data: number) => {
-        return data * 2;
-      }));
-    this.numbersObsSubscription = myNumbers.subscribe((number: number) => {
-      console.log(number);
-    });
-
+    const myNumbers = Observable.interval(1000)
+      .map(
+        (data: number) => {
+          return data * 2;
+        }
+      );
+    this.numbersObsSubscription = myNumbers.subscribe(
+      (number: number) => {
+        console.log(number);
+      }
+    );
     const myObservable = Observable.create((observer: Observer<string>) => {
       setTimeout(() => {
         observer.next('first package');
@@ -29,29 +38,25 @@ export class HomeComponent implements OnInit, OnDestroy {
         observer.next('second package');
       }, 4000);
       setTimeout(() => {
-        observer.complete();
         // observer.error('this does not work');
+        observer.complete();
       }, 5000);
       setTimeout(() => {
         observer.next('third package');
-        // observer.error('this does not work');
       }, 6000);
     });
     this.customObsSubscription = myObservable.subscribe(
-      (data: string) => {
-        console.log(data);
-      },
-      (error: string) => {
-        console.log(error);
-      },
-      () => {
-        console.log('completed');
-      }
+      (data: string) => { console.log(data); },
+      (error: string) => { console.log(error); },
+      () => { console.log('completed'); }
     );
   }
-
-  ngOnDestroy(): void {
+ 
+ 
+  ngOnDestroy() {
     this.numbersObsSubscription.unsubscribe();
     this.customObsSubscription.unsubscribe();
   }
+ 
+ 
 }
