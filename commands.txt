@@ -16,6 +16,8 @@ ng g service header/recipe/recipeService
 
 npm install --save bootstrap@3   --save: dev dependencie
 
+npm install --save rxjs-compat
+
 Debugging on Chrome:
 - Sources / Webpack / . / src ...
 - Augury tab
