@@ -10,7 +10,7 @@ export class AppComponent {
     const suggestedName = 'Superuser';
   }
 
-  onSubmit(event) {
-    console.log('Submitted!', event);
+  onSubmit(form: HTMLFormElement) {
+    console.log('Submitted!', form);
   }
 }
