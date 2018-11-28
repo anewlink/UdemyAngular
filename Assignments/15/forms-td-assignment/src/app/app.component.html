@@ -1,18 +1,44 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-      <!-- Add a Form with the following Inputs (and Validators)
-           1) Mail address (should not be empty and should be an email address)
-           2) A Dropdown which allows the user to select from three different Subscriptions ("Basic", "Advanced", "Pro")
-              Set "Advanced" as Default
-           3) A Password field (should not be empty)
-           4) A Submit Button
+    <p class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <!--
+        Add a Form with the following Inputs (and Validators)
+        1) Mail address (should not be empty and should be an email address)
+        2) A Dropdown which allows the user to select from three different Subscriptions ("Basic", "Advanced", "Pro")
+           Set "Advanced" as Default
+        3) A Password field (should not be empty)
+        4) A Submit Button
 
-           Display a warning message if the Form is invalid AND was touched. Display a warning message below each input if it's invalid.
+        Display a warning message if the Form is invalid AND was touched. Display a warning message below each input if it's invalid.
 
-           Upon submitting the form, you should simply print the Value of the Form to the Console.
-           Optionally, display it in your template.
+        Upon submitting the form, you should simply print the Value of the Form to the Console.
+        Optionally, display it in your template.
       -->
-    </div>
+    </p>
+
+    <form (onSubmit)="onSubmit(f)" #f="ngForm">
+      <div class="form-group" ngModelGroup="emails" #emails="ngModelGroup">
+        <label> Email: </label>
+        <input type="email" name="email1" email required ngModel #email="ngModel"/>
+        <input type="email" name="email2" email required ngModel ngNativeValidate/>
+      </div>
+      <p class="alert alert-warning" *ngIf="emails.invalid && emails.touched">Email fields should correspond to a valid email</p>
+      <div class="form-group">
+          <label for="subscriptions"> Subscriptions: </label>
+          <!-- <select name="subscriptions" *ngFor="let subscription of subscriptions"></select> -->
+          <select name="subscriptions" [ngModel]="subscriptions">
+            <option value="{{subscription}}" *ngFor="let subscription of subscriptions">{{subscription}}</option>
+          </select>
+      </div>
+      <div class="form-group">
+          <label for="pwd" class="required"> Password: </label>
+          <input type="password" name="pwd" required ngModel #pwd="ngModel"/>
+      </div>
+      <p class="alert alert-warning" *ngIf="pwd.invalid && pwd.touched">Password is required</p>
+      <button (click)="onSubmit(f)" type="submit" [disabled]="!f.valid" class="btn btn-primary">
+        Submit
+      </button>
+    </form>
+    <p class="alert alert-warning" *ngIf="f.invalid && f.touched">Form is invalid</p>
   </div>
 </div>
