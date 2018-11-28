@@ -10,7 +10,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 export class RecipeComponent implements OnInit {
   @Input() recipe: Recipe;
-  //recipe: Recipe;
+  // recipe: Recipe;
   @Input() index: number;
   // @Output() recipeSelected = new EventEmitter<void>();
   constructor(private recipeService: RecipeService,
@@ -28,7 +28,7 @@ export class RecipeComponent implements OnInit {
   }
 
   onSelected() {
-    this.recipeService.recipeSelected.emit(this.recipe);
+    // this.recipeService.recipeSelected.emit(this.recipe);
     // this.recipeSelected.emit();
   }
 

@@ -13,7 +13,8 @@ const appRoutes: Routes = [
       {path: 'new', component: RecipeEditComponent},
       {path: ':id', component: RecipeDetailComponent},
       {path: ':id/edit', component: RecipeEditComponent}
-    ]}
+    ]},
+  { path: 'shopping-list', component: ShoppingListComponent },
 ];
 
 @NgModule({

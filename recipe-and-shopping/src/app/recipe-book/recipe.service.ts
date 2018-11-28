@@ -1,11 +1,11 @@
-import { Recipe } from "./recipe.model";
-import { EventEmitter, Injectable } from "@angular/core";
-import { Ingredient } from "../shared/ingredient.model";
-import { ShoppingListService } from "../shopping-list/shopping-list.service";
+import { Recipe } from './recipe.model';
+import { EventEmitter, Injectable } from '@angular/core';
+import { Ingredient } from '../shared/ingredient.model';
+import { ShoppingListService } from '../shopping-list/shopping-list.service';
 
 @Injectable()
 export class RecipeService {
-  recipeSelected = new EventEmitter<Recipe>();
+  // recipeSelected = new EventEmitter<Recipe>();
   recipeIngredientsAdded = new EventEmitter<Ingredient[]>();
 
   private recipes: Recipe[] = [
@@ -17,7 +17,8 @@ export class RecipeService {
         new Ingredient('Meat', 1),
         new Ingredient('French Fries', 20)
       ]),
-    new Recipe('Big Fat Burger',
+    new Recipe(
+      'Big Fat Burger',
       'What else you need to say?',
       'https://upload.wikimedia.org/wikipedia/commons/b/be/Burger_King_Angus_Bacon_%26_Cheese_Steak_Burger.jpg',
       [
@@ -34,12 +35,12 @@ export class RecipeService {
     return this.recipes.slice();
   }
 
-  getRecipe(index: number){
-    //return this.recipes.filter((recipe:Recipe) => {recipe. === id});
+  getRecipe(index: number) {
+    // return this.recipes.filter((recipe:Recipe) => {recipe. === id});
     return this.recipes[index];
   }
 
   addIngredientsToShoppingList(ingredients: Ingredient[]) {
     this.shoppingListService.addIngredients(ingredients);
- }
+  }
 }
