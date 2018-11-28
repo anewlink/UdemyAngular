@@ -21,3 +21,5 @@ npm install --save rxjs-compat
 Debugging on Chrome:
 - Sources / Webpack / . / src ...
 - Augury tab
+
+enable HTML5 validation: adding the ngNativeValidate  to a control in your template

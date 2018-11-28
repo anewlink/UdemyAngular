@@ -26,7 +26,7 @@
       <div class="form-group">
           <label for="subscriptions"> Subscriptions: </label>
           <!-- <select name="subscriptions" *ngFor="let subscription of subscriptions"></select> -->
-          <select name="subscriptions" [ngModel]="subscriptions">
+          <select name="subscriptions" [ngModel]="defaultSubscription">
             <option value="{{subscription}}" *ngFor="let subscription of subscriptions">{{subscription}}</option>
           </select>
       </div>
