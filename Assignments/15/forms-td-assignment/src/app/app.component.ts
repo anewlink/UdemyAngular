@@ -1,13 +1,12 @@
-import { Component, AfterViewInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { formArrayNameProvider } from '@angular/forms/src/directives/reactive_directives/form_group_name';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent implements OnInit {
 
   @ViewChild('f') customForm: NgForm;
 
@@ -33,12 +32,12 @@ export class AppComponent implements AfterViewInit {
     this.form.emails.email2 = this.customForm.value.emails.email2;
     this.form.subscriptions = this.customForm.value.subscriptions;
     this.form.pwd = this.customForm.value.pwd;
-    console.log(form, this.form);
+    console.log(form, this.form, "customForm", this.customForm.value);
   }
 
-  ngAfterViewInit() {
+  ngOnInit() {
     console.log(this.customForm);
-    this.customForm.form.patchValue({subscriptions: 'Advanced'});
+    // this.customForm.form.patchValue({subscriptions: 'Advanced'});
   }
 
 }

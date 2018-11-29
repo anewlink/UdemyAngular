@@ -16,29 +16,59 @@
       -->
     </p>
 
-    <form (onSubmit)="onSubmit(f)" #f="ngForm">
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
       <div class="form-group" ngModelGroup="emails" #emails="ngModelGroup">
-        <label> Email: </label>
-        <input type="email" name="email1" email required ngModel #email="ngModel"/>
-        <input type="email" name="email2" email required ngModel ngNativeValidate/>
+        <label> Mail: </label>
+        <input
+          type="email"
+          name="email1"
+          email
+          required
+          ngModel
+          #email="ngModel"
+          class="form-control"/>
+        <input
+          type="email"
+          name="email2"
+          email
+          required
+          ngModel
+          ngNativeValidate
+          class="form-control"/>
+          <span class="help-block" *ngIf="emails.invalid && emails.touched">Email fields should correspond to a valid email</span>
       </div>
-      <p class="alert alert-warning" *ngIf="emails.invalid && emails.touched">Email fields should correspond to a valid email</p>
+      <!-- <p class="alert alert-warning" *ngIf="emails.invalid && emails.touched">Email fields should correspond to a valid email</p> -->
       <div class="form-group">
-          <label for="subscriptions"> Subscriptions: </label>
+          <label for="subscriptions"> Choose a Subscription: </label>
           <!-- <select name="subscriptions" *ngFor="let subscription of subscriptions"></select> -->
-          <select name="subscriptions" [ngModel]="defaultSubscription">
-            <option value="{{subscription}}" *ngFor="let subscription of subscriptions">{{subscription}}</option>
+          <select
+            name="subscriptions"
+            id="subscriptions"
+            [ngModel]="defaultSubscription"
+            class="form-control">
+            <option
+              [value]="subscription"
+              *ngFor="let subscription of subscriptions">{{subscription}}</option>
           </select>
       </div>
       <div class="form-group">
-          <label for="pwd" class="required"> Password: </label>
-          <input type="password" name="pwd" required ngModel #pwd="ngModel"/>
+          <label for="pwd"> Password: </label>
+          <input
+            type="password"
+            name="pwd"
+            id="pwd"
+            required
+            ngModel
+            #pwd="ngModel"
+            class="form-control"/>
+            <span class="help-block" *ngIf="pwd.invalid && pwd.touched">Password is required</span>
       </div>
-      <p class="alert alert-warning" *ngIf="pwd.invalid && pwd.touched">Password is required</p>
+      <!-- <p class="alert alert-warning" *ngIf="pwd.invalid && pwd.touched">Password is required</p> -->
       <button (click)="onSubmit(f)" type="submit" [disabled]="!f.valid" class="btn btn-primary">
         Submit
       </button>
+      <span class="help-block" *ngIf="f.invalid && f.touched">The form is invalid</span>
     </form>
-    <p class="alert alert-warning" *ngIf="f.invalid && f.touched">Form is invalid</p>
+    <!-- <p class="alert alert-warning" *ngIf="f.invalid && f.touched">Form is invalid</p> -->
   </div>
 </div>
