@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Observable } from 'rxjs';
+import { CustomValidators } from './custom-validators';
 
 @Component({
   selector: 'app-root',
@@ -14,26 +14,10 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.projectForm = new FormGroup({
-      name: new FormControl(null, [Validators.required, this.invalidProjectName.bind(this)], this.asyncInvalidProjectName.bind(this)),
+      name: new FormControl(null, [Validators.required, CustomValidators.invalidProjectName], CustomValidators.asyncInvalidProjectName),
       email: new FormControl(null, [Validators.email, Validators.required]),
       status: new FormControl(this.statusList[0])
     });
-  }
-
-  invalidProjectName(control: FormControl) {
-    if (control.value === this.forbbidenProjectName) {
-      return { invalidProjectName: true };
-    }
-    return null;
-  }
-
-  asyncInvalidProjectName(control: FormControl): Promise<any> | Observable<any> {
-    const promise = new Promise<any>((resolve, reject) => {
-      setTimeout(() => {
-        resolve(this.invalidProjectName(control));
-      }, 10000);
-    });
-    return promise;
   }
 
   onSubmit() {
