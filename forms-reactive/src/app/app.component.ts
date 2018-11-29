@@ -69,7 +69,7 @@ export class AppComponent implements OnInit {
       setTimeout(() => {
         if (control.value === 'test@test.com') {
           resolve({ emailIsForbidden: true });
-        } else{
+        } else {
           resolve(null);
         }
       }, 15000);
