@@ -5,6 +5,7 @@ import { Subject } from 'rxjs';
 export class ShoppingListService implements OnInit {
          // ingredientsChanged = new EventEmitter<Ingredient[]>();
          ingredientsChanged = new Subject<Ingredient[]>();
+         startedEditing = new Subject<number>();
 
          constructor() {}
 
@@ -25,6 +26,20 @@ export class ShoppingListService implements OnInit {
            /* for (const ingredient of ingredients) {
               this.addIngredient(ingredient);
             } */
+         }
+
+         updateIngredient(index: number, newIngredient: Ingredient) {
+          this.ingredients[index] = newIngredient;
+          this.ingredientsChanged.next(this.ingredients.slice());
+         }
+
+         deleteIngredient(index: number) {
+           this.ingredients.splice(index, 1);
+           this.ingredientsChanged.next(this.ingredients.slice());
+         }
+
+         getIngredient(index: number) {
+           return this.ingredients[index];
          }
 
          getIngredients() {
