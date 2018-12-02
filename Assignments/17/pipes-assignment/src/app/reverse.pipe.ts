@@ -12,6 +12,7 @@ export class ReversePipe implements PipeTransform {
       return valuesArray.join('');
     }
     return value;
+    // return value.split('').reverse().join('');
   }
 
 }

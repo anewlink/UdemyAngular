@@ -8,7 +8,7 @@ export class SortPipe implements PipeTransform {
   transform(value: any, propName: string, criteria?: string): any {
     let sortCriteria = criteria;
     const sortValues = ["asc", "desc"];
-    console.log(sortCriteria, value, propName);
+
     if (value.length === 0) {
       return value;
     }
