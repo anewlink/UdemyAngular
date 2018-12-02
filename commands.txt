@@ -23,3 +23,5 @@ Debugging on Chrome:
 - Augury tab
 
 enable HTML5 validation: adding the ngNativeValidate  to a control in your template
+
+https://udemy-ng-http-e47b0.firebaseio.com/
