@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
+import { Http, Headers, Response } from '@angular/http';
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class ServerService {
@@ -7,7 +8,7 @@ export class ServerService {
 
   storeServers(servers: any[]) {
     const headers = new Headers({ 'Content-Type': 'application/json' });
-/*     return this.http.post(
+    /*     return this.http.post(
       'https://udemy-ng-http-e47b0.firebaseio.com/' + 'data.json',
       servers,
       { headers: headers }
@@ -19,6 +20,16 @@ export class ServerService {
     );
   }
   getServers() {
-    return this.http.get('https://udemy-ng-http-e47b0.firebaseio.com/' + 'data.json');
+    return this.http
+      .get('https://udemy-ng-http-e47b0.firebaseio.com/' + 'data.json')
+      .pipe(
+        map((response: Response) => {
+          const data = response.json();
+          for(const server of data) {
+            server.name = 'FETCHED_' + server.name;
+          }
+          return data;
+        })
+      );
   }
 }
