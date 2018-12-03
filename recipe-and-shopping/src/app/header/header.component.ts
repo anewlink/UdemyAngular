@@ -1,6 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { DataStorageService } from '../shared/data-storage.service';
 import { Response } from '@angular/http';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +11,10 @@ import { Response } from '@angular/http';
 export class HeaderComponent implements OnInit {
   /* @Output() selectedMenu = new EventEmitter<string>(); */
 
-  constructor(private dataStorageService: DataStorageService) { }
+  constructor(private dataStorageService: DataStorageService,
+              private authService: AuthService) {
+
+  }
 
   ngOnInit() {
   }
@@ -27,6 +31,9 @@ export class HeaderComponent implements OnInit {
       });
   }
 
+  onLogout() {
+    this.authService.logout();
+  }
 /*   onSelect(section: string){
     console.log("onSelect", section);
     this.selectedMenu.emit(section);
