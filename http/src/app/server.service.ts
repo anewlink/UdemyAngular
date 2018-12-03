@@ -38,4 +38,12 @@ export class ServerService {
         })
       );
   }
+  getAppName() {
+    return this.http.get('https://udemy-ng-http-e47b0.firebaseio.com/appName'+'.json')
+      .pipe(
+        map(
+          (response: Response) => response.json()
+        )
+      );
+  }
 }
