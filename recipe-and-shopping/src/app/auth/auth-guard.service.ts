@@ -1,12 +1,9 @@
-import { CanActivate } from '@angular/router/src/utils/preactivation';
-import { ActivatedRoute, RouterStateSnapshot, ActivatedRouteSnapshot } from '@angular/router';
+import { CanActivate, RouterStateSnapshot, ActivatedRouteSnapshot } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { AuthService } from './auth.service';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
-/*   path: ActivatedRouteSnapshot[];
-  route: ActivatedRouteSnapshot; */
 
   constructor(private authService: AuthService) {}
 
