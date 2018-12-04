@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
+/* import { HeaderComponent } from './header/header.component'; */
 import { ShoppingListService } from './shopping-list/shopping-list.service';
 import { RecipeService } from './recipe-book/recipe.service';
 import { HttpModule } from '@angular/http';
@@ -15,13 +15,14 @@ import { AuthGuard } from './auth/auth-guard.service';
 import { SharedModule } from './shared/shared.module';
 import { ShoppingListModule } from './shopping-list/shopping-list.module';
 import { AuthModule } from './auth/auth.module';
-import { HomeComponent } from './home/home.component';
+import { CoreModule } from './core/core.module';
+/* import { HomeComponent } from './home/home.component'; */
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    HomeComponent,
+/*     HeaderComponent,
+    HomeComponent, */
     /* RecipeBookComponent, */
     // ShoppingListComponent,
     /* RecipeComponent,
@@ -41,7 +42,8 @@ import { HomeComponent } from './home/home.component';
     HttpModule,
     SharedModule,
     ShoppingListModule,
-    AuthModule
+    AuthModule,
+    CoreModule
     /* ,
     ReactiveFormsModule */
   ],
