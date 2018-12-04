@@ -17,6 +17,8 @@ ng g service header/recipe/recipeService
 npm install --save bootstrap@3   --save: dev dependencie
 
 npm install --save rxjs-compat
+ng build --prod
+ng build --prod --aot
 
 Debugging on Chrome:
 - Sources / Webpack / . / src ...
@@ -27,3 +29,5 @@ enable HTML5 validation: adding the ngNativeValidate  to a control in your templ
 https://udemy-ng-http-e47b0.firebaseio.com/
 https://udemy-ng-http-e47b0.firebaseio.com/appName
 https://ng-recipe-book-364a1.firebaseio.com/
+
+http://nd-recipe-app-udemy.s3-website-sa-east-1.amazonaws.com
