@@ -9,7 +9,8 @@ import { RecipeBookComponent } from './recipe-book.component';
 
 const recipesRoutes: Routes = [
   {
-    path: 'recipes',
+    /* path: 'recipes', */
+    path: '',
     component: RecipeBookComponent,
     children: [
       // { path: '', component: RecipeStartComponent, pathMatch: 'full' },
@@ -26,9 +27,7 @@ const recipesRoutes: Routes = [
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forChild(recipesRoutes)
-  ],
+  imports: [RouterModule.forChild(recipesRoutes)],
   exports: [RouterModule]
 })
 export class RecipesRoutingModule {}
