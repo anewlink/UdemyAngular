@@ -15,11 +15,13 @@ import { RecipesModule } from './recipe-book/recipes.module';
 import { SharedModule } from './shared/shared.module';
 import { ShoppingListModule } from './shopping-list/shopping-list.module';
 import { AuthModule } from './auth/auth.module';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+    HomeComponent,
     /* RecipeBookComponent, */
     // ShoppingListComponent,
     /* RecipeComponent,
