@@ -36,17 +36,28 @@ export class DataStorageService {
         }
       ); */
     this.httpClient
-      .get<Recipe[]>(
+
+/*       .get<Recipe[]>(
         'https://ng-recipe-book-364a1.firebaseio.com/recipes' +
           '.json' +
           '?auth=' +
           token
+      ) */
+      .get<Recipe[]>(
+        'https://ng-recipe-book-364a1.firebaseio.com/recipes' +
+          '.json' +
+          '?auth=' +
+          token, {
+            observe:  'body', //default body...options: full all the response
+            responseType: 'json' //default json..options: text blob, arraybuffer
+          }
       )
       /*       .pipe(map((response: Response) => {
         const recipes: Recipe[] = response.json(); */
       /* .pipe(map((recipes: Recipe[]) => { */
       .pipe(
         map((recipes: Recipe[]) => {
+          // console.log(recipes);
           for (let recipe of recipes) {
             if (!recipe['ingredients']) {
               recipe['ingredients'] = [];
