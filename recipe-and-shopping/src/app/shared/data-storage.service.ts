@@ -4,7 +4,7 @@ import { RecipeService } from '../recipe-book/recipe.service';
 import { Recipe } from '../recipe-book/recipe.model';
 import { map } from 'rxjs/operators';
 import { AuthService } from '../auth/auth.service';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams, HttpRequest } from '@angular/common/http';
 
 @Injectable()
 export class DataStorageService {
@@ -17,13 +17,23 @@ export class DataStorageService {
 
   storeRecipes() {
     const token = this.authService.getToken();
-    return this.httpClient.put(
-      'https://ng-recipe-book-364a1.firebaseio.com/recipes' +
-        '.json' +
-        '?auth=' +
-        token,
-      this.recipeService.getRecipes()
-    );
+    const req = new HttpRequest('PUT', 'https://ng-recipe-book-364a1.firebaseio.com/recipes.json', this.recipeService.getRecipes(), {
+      reportProgress: true,
+      params: new HttpParams().set('auth', token)
+    });
+    return this.httpClient.request(req);
+/*     return this.httpClient.put(
+      'https://ng-recipe-book-364a1.firebaseio.com/recipes.json',
+      this.recipeService.getRecipes(),
+      {
+        observe: 'body',
+        params: new HttpParams().set('auth', token),
+
+      } */
+      /* ,
+        headers: new HttpHeaders().set('Authorization', 'Bearer afdsffsff')
+      //{observe: 'events'}
+    );*/
   }
 
   getRecipes() {
@@ -37,7 +47,7 @@ export class DataStorageService {
       ); */
     this.httpClient
 
-/*       .get<Recipe[]>(
+      /*       .get<Recipe[]>(
         'https://ng-recipe-book-364a1.firebaseio.com/recipes' +
           '.json' +
           '?auth=' +
@@ -47,10 +57,11 @@ export class DataStorageService {
         'https://ng-recipe-book-364a1.firebaseio.com/recipes' +
           '.json' +
           '?auth=' +
-          token, {
-            observe:  'body', //default body...options: full all the response
-            responseType: 'json' //default json..options: text blob, arraybuffer
-          }
+          token,
+        {
+          observe: 'body', //default body...options: full all the response
+          responseType: 'json' //default json..options: text blob, arraybuffer
+        }
       )
       /*       .pipe(map((response: Response) => {
         const recipes: Recipe[] = response.json(); */
