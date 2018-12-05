@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 /* import { FormsModule } from '@angular/forms'; */
 
 import { AppRoutingModule } from './app-routing.module';
@@ -7,7 +8,8 @@ import { AppComponent } from './app.component';
 /* import { HeaderComponent } from './header/header.component'; */
 /* import { ShoppingListService } from './shopping-list/shopping-list.service';
 import { RecipeService } from './recipe-book/recipe.service'; */
-import { HttpModule } from '@angular/http';
+/* import { HttpModule } from '@angular/http'; */
+
 /* import { DataStorageService } from './shared/data-storage.service';
 import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth-guard.service'; */
@@ -39,7 +41,8 @@ import { CoreModule } from './core/core.module';
     BrowserModule,
     AppRoutingModule,
     /* FormsModule, */
-    HttpModule,
+    /* HttpModule, */
+    HttpClientModule,
     SharedModule,
     ShoppingListModule,
     AuthModule,
