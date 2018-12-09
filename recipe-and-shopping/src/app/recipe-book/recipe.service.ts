@@ -1,10 +1,13 @@
-import { Recipe } from './recipe.model';
 import { EventEmitter, Injectable } from '@angular/core';
-import { Ingredient } from '../shared/ingredient.model';
-import { ShoppingListService } from '../shopping-list/shopping-list.service';
+/* import { Store } from '@ngrx/store'; */
 import { Subject } from 'rxjs';
-
-@Injectable()
+import { Recipe } from './recipe.model';
+import { Ingredient } from '../shared/ingredient.model';
+/* import { ShoppingListService } from '../shopping-list/shopping-list.service'; */
+/* import * as ShoppingListActions from '../shopping-list/store/shopping-list.actions'; */
+/* import { dispatch } from 'rxjs/internal/observable/range'; */
+/*
+@Injectable() */
 export class RecipeService {
   // recipeSelected = new EventEmitter<Recipe>();
   recipeIngredientsAdded = new EventEmitter<Ingredient[]>();
@@ -25,7 +28,8 @@ export class RecipeService {
     )
   ];
 
-  constructor(private shoppingListService: ShoppingListService) {}
+  constructor(/* private shoppingListService: ShoppingListService,  *//* private store:Store<{
+    shoppingList: {ingredients: Ingredient[]}}> */) {}
 
   setRecipes(recipes: Recipe[]) {
     this.recipes = recipes;
@@ -40,10 +44,12 @@ export class RecipeService {
     // return this.recipes.filter((recipe:Recipe) => {recipe. === id});
     return this.recipes[index];
   }
-
+/*
   addIngredientsToShoppingList(ingredients: Ingredient[]) {
     this.shoppingListService.addIngredients(ingredients);
-  }
+    console.log('dispatch ingredientes');
+    this.store.dispatch(new ShoppingListActions.AddIngredients(ingredients));
+  } */
 
   addRecipe(recipe: Recipe) {
     this.recipes.push(recipe);
