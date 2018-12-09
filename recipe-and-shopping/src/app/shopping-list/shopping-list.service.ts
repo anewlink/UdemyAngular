@@ -1,5 +1,5 @@
 import { Ingredient } from '../shared/ingredient.model';
-import { EventEmitter, OnInit } from '@angular/core';
+import { /*EventEmitter, */OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 
 export class ShoppingListService implements OnInit {
@@ -13,11 +13,11 @@ export class ShoppingListService implements OnInit {
            new Ingredient('Apples', 5),
            new Ingredient('Tomatos', 10)];
 
-         addIngredient(ingredient: Ingredient) {
-           this.ingredients.push(ingredient);
+         /*addIngredient(ingredient: Ingredient) {
+           this.ingredients.push(ingredient);*/
            // this.ingredientsChanged.emit(this.ingredients.slice());
-           this.ingredientsChanged.next(this.ingredients.slice());
-         }
+           /*this.ingredientsChanged.next(this.ingredients.slice());
+         }*/
 
          addIngredients(ingredients: Ingredient[]) {
            this.ingredients.push(...ingredients);
@@ -41,10 +41,10 @@ export class ShoppingListService implements OnInit {
          getIngredient(index: number) {
            return this.ingredients[index];
          }
-
+         /*
          getIngredients() {
            return this.ingredients.slice();
-         }
+         } */
 
          ngOnInit() {
            /*     this.recipeService.recipeIngredientsAdded.subscribe(ingredientList => {

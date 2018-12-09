@@ -31,6 +31,8 @@ https://udemy-ng-http-e47b0.firebaseio.com/appName
 https://ng-recipe-book-364a1.firebaseio.com/
 
 http://nd-recipe-app-udemy.s3-website-sa-east-1.amazonaws.com
+npm install --save @ngrx/store
+
 
 00456 51 1 641 9311
 
