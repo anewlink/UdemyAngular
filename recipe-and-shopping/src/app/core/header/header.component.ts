@@ -1,8 +1,12 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit/* , EventEmitter, Output */ } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { DataStorageService } from '../../shared/data-storage.service';
-import { Response } from '@angular/http';
+/* import { Response } from '@angular/http'; */
 import { AuthService } from '../../auth/auth.service';
-import { HttpEvent, HttpEventType } from '@angular/common/http';
+/* import { HttpEvent, HttpEventType } from '@angular/common/http'; */
+import * as fromApp from '../../store/app.reducers';
+import * as fromAuth from '../../auth/store/auth.reducers';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -11,13 +15,17 @@ import { HttpEvent, HttpEventType } from '@angular/common/http';
 })
 export class HeaderComponent implements OnInit {
   /* @Output() selectedMenu = new EventEmitter<string>(); */
+  authState: Observable<fromAuth.State>;
 
   constructor(
     private dataStorageService: DataStorageService,
-    private authService: AuthService
+    private authService: AuthService,
+    private store: Store<fromApp.AppState>
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.authState = this.store.select('auth');
+  }
 
   onFetchData() {
     console.log('fetch');
@@ -34,9 +42,9 @@ export class HeaderComponent implements OnInit {
     });
   }
 
-  isAuthenticated() {
+/*   isAuthenticated() {
     return this.authService.isAuthenticated();
-  }
+  } */
 
   onLogout() {
     this.authService.logout();

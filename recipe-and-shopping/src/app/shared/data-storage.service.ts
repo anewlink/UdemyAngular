@@ -16,7 +16,7 @@ export class DataStorageService {
   ) {}
 
   storeRecipes() {
-    const token = this.authService.getToken();
+    // const token = this.authService.getToken();
     const req = new HttpRequest('PUT', 'https://ng-recipe-book-364a1.firebaseio.com/recipes.json', this.recipeService.getRecipes(), {
       reportProgress: true/* ,
       params: new HttpParams().set('auth', token) */
@@ -37,8 +37,8 @@ export class DataStorageService {
   }
 
   getRecipes() {
-    const token = this.authService.getToken();
-    let tk = '';
+    // const token = this.authService.getToken();
+    // let tk = '';
     /*     this.authService.getToken()
       .then(
         (token: string)=> {
@@ -54,10 +54,10 @@ export class DataStorageService {
           token
       ) */
       .get<Recipe[]>(
-        'https://ng-recipe-book-364a1.firebaseio.com/recipes' +
-          '.json' +
+        'https://ng-recipe-book-364a1.firebaseio.com/recipes.json'
+          /*  +
           '?auth=' +
-          token,
+          token */,
         {
           observe: 'body', //default body...options: full all the response
           responseType: 'json' //default json..options: text blob, arraybuffer
@@ -68,7 +68,7 @@ export class DataStorageService {
       /* .pipe(map((recipes: Recipe[]) => { */
       .pipe(
         map((recipes: Recipe[]) => {
-          // console.log(recipes);
+          console.log(recipes);
           for (let recipe of recipes) {
             if (!recipe['ingredients']) {
               recipe['ingredients'] = [];
