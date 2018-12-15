@@ -2,11 +2,12 @@ import { Component, OnInit/* , EventEmitter, Output */ } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { DataStorageService } from '../../shared/data-storage.service';
 /* import { Response } from '@angular/http'; */
-import { AuthService } from '../../auth/auth.service';
+/* import { AuthService } from '../../auth/auth.service'; */
 /* import { HttpEvent, HttpEventType } from '@angular/common/http'; */
 import * as fromApp from '../../store/app.reducers';
 import * as fromAuth from '../../auth/store/auth.reducers';
 import { Observable } from 'rxjs';
+import * as AuthActions from '../../auth/store/auth.actions';
 
 @Component({
   selector: 'app-header',
@@ -19,7 +20,7 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private dataStorageService: DataStorageService,
-    private authService: AuthService,
+    /* private authService: AuthService, */
     private store: Store<fromApp.AppState>
   ) {}
 
@@ -47,7 +48,8 @@ export class HeaderComponent implements OnInit {
   } */
 
   onLogout() {
-    this.authService.logout();
+    //this.authService.logout();
+    this.store.dispatch(new AuthActions.Logout());
   }
   /*   onSelect(section: string){
     console.log("onSelect", section);
