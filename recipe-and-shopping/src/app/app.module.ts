@@ -28,16 +28,12 @@ import { AuthEffects } from './auth/store/auth.effects';
     ShoppingListModule,
     AuthModule,
     CoreModule,
-    StoreModule.forRoot(reducers/* { shoppingList: shoppingListReducer } */),
+    StoreModule.forRoot(reducers),
     EffectsModule.forRoot([AuthEffects]),
     StoreRouterConnectingModule,
     !environment.production ? StoreDevtoolsModule.instrument() : []
-
-    /* ,
-    ReactiveFormsModule */
   ],
-  //providers: [ShoppingListService, RecipeService, DataStorageService, AuthService, AuthGuard,
-  //providers: [],
+  //providers: [ShoppingListService, RecipeService, DataStorageService, AuthService, AuthGuard]
   bootstrap: [AppComponent]
 })
 export class AppModule {}

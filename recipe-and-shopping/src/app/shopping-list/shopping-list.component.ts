@@ -1,10 +1,8 @@
-import { Component, OnInit /* , Input,  OnDestroy*/} from '@angular/core';
-import { /* Subscription, */ Observable } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { Ingredient } from '../shared/ingredient.model';
-/* import { ShoppingListService } from './shopping-list.service'; */
 import * as ShoppingListActions from './store/shopping-list.actions';
-/* import * as fromShoppingList from './store/shopping-list.reducers'; */
 import * as fromApp from '../store/app.reducers';
 
 @Component({
@@ -27,9 +25,5 @@ export class ShoppingListComponent implements OnInit {
   onEditItem(index: number) {
     this.store.dispatch(new ShoppingListActions.StartEdit(index));
   }
-
-  /* ngOnDestroy() {
-    this.subscription.unsubscribe();
-  } */
 
 }
