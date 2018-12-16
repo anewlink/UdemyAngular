@@ -51,7 +51,7 @@ export class RecipeService {
     this.store.dispatch(new ShoppingListActions.AddIngredients(ingredients));
   } */
 
-  addRecipe(recipe: Recipe) {
+/*   addRecipe(recipe: Recipe) {
     this.recipes.push(recipe);
     this.recipesChanged.next(this.recipes.slice());
   }
@@ -64,7 +64,7 @@ export class RecipeService {
   deleteRecipe(index: number) {
     this.recipes.splice(index, 1);
     this.recipesChanged.next(this.recipes.slice());
-  }
+  } */
 
 
 }

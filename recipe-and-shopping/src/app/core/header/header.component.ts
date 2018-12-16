@@ -8,6 +8,8 @@ import * as fromApp from '../../store/app.reducers';
 import * as fromAuth from '../../auth/store/auth.reducers';
 import { Observable } from 'rxjs';
 import * as AuthActions from '../../auth/store/auth.actions';
+import * as RecipeActions from '../../recipe-book/store/recipe.actions';
+
 
 @Component({
   selector: 'app-header',
@@ -30,7 +32,8 @@ export class HeaderComponent implements OnInit {
 
   onFetchData() {
     console.log('fetch');
-    this.dataStorageService.getRecipes();
+    /* this.dataStorageService.getRecipes(); */
+    this.store.dispatch(new RecipeActions.FetchRecipes());
   }
 
   onSaveData() {
@@ -38,9 +41,10 @@ export class HeaderComponent implements OnInit {
     .subscribe((response: HttpEvent<Object>)=>{
       console.log(response, response.type === HttpEventType.Response);
     }); */
-    this.dataStorageService.storeRecipes().subscribe((response) => {
+    /* this.dataStorageService.storeRecipes().subscribe((response) => {
       console.log(response);
-    });
+    }); */
+    this.store.dispatch(new RecipeActions.StoreRecipes())
   }
 
 /*   isAuthenticated() {
