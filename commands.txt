@@ -38,9 +38,18 @@ npm install --save @ngrx/router-store
 npm install --save @ngrx/store-devtools
 Redux devtools extension
 
+Universal
+npm install --save @angular/platform-server @nguniversal/module-map-ngfactory-loader ts-loader
+npm install --save-dev ts-loader webpack-cli
 
-00456 51 1 641 9311
+npm install --save @angular/platform-server @nguniversal/module-map-ngfactory-loader express
+$ npm install --save-dev ts-loader webpack-cli
 
+ng run recipe-and-shopping:server
+ng run recipe-and-shopping:build
+node dist/server.js
 
-335.22 USD
-979300.36 COP
+npm run build:ssr && npm run serve:ssr
+npm run webpack:server
+
+node dist/server.js
