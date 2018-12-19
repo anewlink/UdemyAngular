@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
+import { trigger, state, style, transition, animate, keyframes, group } from '@angular/animations';
 
 @Component({
   selector: 'app-root',
@@ -84,17 +84,22 @@ import { trigger, state, style, transition, animate, keyframes } from '@angular/
             offset: 0.8
           }),
           style({
-            transform: 'translateX(0)',
+            transform: 'translateX(0px)',
             opacity: 1,
             offset: 1
           })
         ]))
       ]),
       transition('* => void', [
-        animate(300, style({
-          opacity: 0,
-          transform: 'translateX(100px)'
-        }),)
+        group([
+          animate(800, style({
+            opacity: 0,
+            transform: 'translateX(100px)'
+          })),
+          animate(300, style({
+            color: 'red'
+          }))
+        ])
       ])
     ])
   ]
@@ -121,6 +126,14 @@ export class AppComponent {
 
   onDelete(item) {
     this.list.splice(this.list.indexOf(item), 1);
+  }
+
+  animationStarted(event) {
+    console.log(event);
+  }
+
+  animationEnded(event) {
+    console.log(event);
   }
 
 
