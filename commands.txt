@@ -57,3 +57,5 @@ node dist/server.js
 npm install --save @angular/animations
 
 ng add @angular/pwa
+
+ng test
