@@ -10,16 +10,19 @@ import { AlertComponent } from './alert.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  //title = 'elements';
+  // title = 'elements';
   content = null;
 
   constructor(injector: Injector, domSanitizer: DomSanitizer) {
-    const AlertElement = createCustomElement(AlertComponent, {injector: injector});
+    const AlertElement = createCustomElement(AlertComponent, {
+      injector: injector
+    });
     customElements.define('my-alert', AlertElement);
     setTimeout(() => {
       // this.content = "<p>A paragreaph!</p>";
-      this.content = domSanitizer.bypassSecurityTrustHtml("<my-alert message='Rendered dynamically'></my-alert>");
+      this.content = domSanitizer.bypassSecurityTrustHtml(
+        "<my-alert message='Rendered dynamically'></my-alert>"
+      );
     }, 1000);
   }
-
 }
