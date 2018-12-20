@@ -81,3 +81,17 @@ Add the bootstrap path to  the "build" section of your angular.json (in an Angul
 7. If you know how to work with GitHub, definitely talk about your experience with it and version control (version control is GitHub)
 8. Angular CRUD operations (Create Read Update Delete) with Firebase - This is the basis of fullstack development. Creating, editing and deleting different user functions
 9. Firebase Real Time Database experience
+ng build --prod
+npm install -g http-server
+cd dist/angular-pwa
+http-server -p 8081
+
+
+
+npm init
+npm install --save @angular/core @angular/common @angular/compiler @angular/compiler-cli @angular/forms @angular/http @angular/platform-browser @angular/platform-browser-dynamic @angular/platform-server @angular/router  @angular/upgrade  @angular/animations
+npm install --save rxjs zone.js core-js
+npm install --save-dev webpack webpack-dev-server angular-router-loader angular2-template-loader awesome-typescript-loader html-loader raw-loader typescript del-cli 
+npm install --save-dev webpack-merge
+npm install --save @angular/animations
+npm install --save-dev html-webpack-plugin
