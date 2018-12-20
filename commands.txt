@@ -61,3 +61,23 @@ ng add @angular/pwa
 ng test
 
 npm install --save @angular/elements
+
+
+npm install --save bootstrap@3
+Add the bootstrap path to  the "build" section of your angular.json (in an Angular 6 project) or .angular-cli.json (in an older project) like this:
+  ...    
+  "styles": [
+    "../node_modules/bootstrap/dist/css/bootstrap.min.css", 
+    "styles.css"      
+  ],    
+  ...
+
+
+  . Angular 4 CLI 
+2. Https server requests - Neatly organized via Angular Services
+3. Angular Animations
+4. App optimization via Modules & Lazy Loading
+5. Ability to quickly learn new technologies like Angular, VueJs & React (they are all similar in architecture and companies love to know that if necessary, you also have the skills to pick up new technologies too, this is very common)
+7. If you know how to work with GitHub, definitely talk about your experience with it and version control (version control is GitHub)
+8. Angular CRUD operations (Create Read Update Delete) with Firebase - This is the basis of fullstack development. Creating, editing and deleting different user functions
+9. Firebase Real Time Database experience
