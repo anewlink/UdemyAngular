@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'elements';
+  //title = 'elements';
+  content = null;
+
+  constructor() {
+    setTimeout(() => {
+      this.content = "<p>A paragreaph!</p>";
+    }, 1000);
+  }
+
 }
