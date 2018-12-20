@@ -59,3 +59,5 @@ npm install --save @angular/animations
 ng add @angular/pwa
 
 ng test
+
+npm install --save @angular/elements
